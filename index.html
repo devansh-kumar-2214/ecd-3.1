@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ecodibba RFQ 3.0</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+            transition: 1000ms;
+            overflow: hidden;
+        }
+
+        .hidden {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+            pointer-events: none;
+        }
+
+        .visible {
+            opacity: 1;
+            transition-property: inherit;
+
+        }
+
+        #Contact_Details {
+            margin-top: 3%;
+            transform: scale(1) translate(0%, 0%);
+            z-index: 3;
+
+        }
+
+        #Billing_Details {
+            margin-top: 3%;
+            transform: scale(0.5) translate(100%, -200%);
+            z-index: 2;
+
+        }
+
+        #Shipping_Details {
+            margin-top: 0%;
+            transform: scale(0.5) translate(100%, -400%);
+            z-index: 1;
+
+        }
+
+        #loader1 {
+            height: 700px;
+            z-index: 10;
+
+
+        }
+
+        #scrollContainer {}
+
+        @media only screen and (min-width: 320px) {
+            .scroll-container {
+                width: 100%;
+                height: 50rem;
+                overflow: hidden;
+                position: relative;
+                margin-top: 37%;
+            }
+
+            .scroll-content {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: max-content;
+                padding-bottom: 25%;
+            }
+
+            #links {
+                display: none;
+            }
+
+            header {
+                display: flex;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .scroll-container {
+                width: 100%;
+                height: 50rem;
+                overflow: hidden;
+                position: relative;
+                margin-top: 7%;
+            }
+
+            .scroll-content {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: max-content;
+                padding-bottom: 25%;
+            }
+
+        }
+
+        .scroll-content {
+            padding-top: 2%;
+        }
+
+        @media only screen and (min-width: 1024px) {
+            .scroll-container {
+                width: 100%;
+                height: 70rem;
+                overflow: hidden;
+                position: relative;
+                margin-top: 2%;
+            }
+
+            .scroll-content {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: max-content;
+                padding-bottom: 25%;
+            }
+
+
+            #links {
+                display: inline;
+                margin-right: 5%;
+            }
+
+        }
+
+        header {
+            z-index: 500;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 ">
+
+
+    <!-- header section-->
+    <header class="text-gray-400 bg-gray-900 body-font visible">
+
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+            style="position:fixed;left:0px;">
+            <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <img src="logo.png" alt="" width="15%">
+                <span class="ml-3 text-xl">ecodibba</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center" id="links">
+                <a class="mr-5 hover:text-white">First Link</a>
+                <a class="mr-5 hover:text-white">Second Link</a>
+                <a class="mr-5 hover:text-white">Third Link</a>
+                <a class="mr-5 hover:text-white">Fourth Link</a>
+            </nav>
+
+            <button
+                class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
+                style="position: fixed;right:50px;">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+
+        </div>
+
+
+    </header>
+
+    <!-- Profile Building -->
+    <section class="text-gray-400 bg-gray-900 body-font relative });" id="Contact_Details">
+        <div style="height: 5rem;">
+
+        </div>
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Contact Details</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+                    asymmetrical gentrify.</p>
+            </div>
+
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div style="height: 5rem;">
+
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div style="height: 5rem;">
+
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">Phone Number</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">Alt. Phone Number</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div style="height: 10rem;">
+
+                    </div>
+
+                </div>
+                <div style="display: flex;">
+                    <div class="p-2 w-full">
+                        <button
+                            class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                            onclick="lr_animation('Contact_Details','Billing_Details',1)">Next</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Profile Building -->
+
+    <section class="text-gray-400 bg-gray-900 body-font relative });" id="Billing_Details">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Billing Details</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+                    asymmetrical gentrify.</p>
+            </div>
+
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div style="height: 5rem;">
+
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">Pin code</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">State</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">City</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+
+
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="message" class="leading-7 text-sm text-gray-400">Billing Address</label>
+                            <textarea id="message" name="message"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div style="display: flex; width:90%;margin:auto;">
+                        <div class="p-2 w-full">
+                            <button
+                                class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                                onclick="lr_animation('Billing_Details','Contact_Details',3)">Prev</button>
+                        </div>
+                        <div class="p-2 w-full">
+                            <button
+                                class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                                onclick="lr_animation('Billing_Details','Shipping_Details',2)">Next</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+    </section>
+
+    <!-- Profile Building -->
+
+    <section class="text-gray-400 bg-gray-900 body-font relative });" id="Shipping_Details">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Shipping Details</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+                    asymmetrical gentrify.</p>
+            </div>
+
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div style="height: 5rem;">
+
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">Pin code</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">State</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-400">City</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+
+
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="message" class="leading-7 text-sm text-gray-400">Shipping Address</label>
+                            <textarea id="message" name="message"
+                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+
+
+
+                    <div style="display: flex; width:90%;margin:auto;">
+                        <div class="p-2 w-full">
+                            <button
+                                class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                                onclick="lr_animation('Shipping_Details','Billing_Details',4)">Prev</button>
+                        </div>
+                        <div class="p-2 w-full">
+
+                            <button
+                                class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                                onclick="up_animation('Shipping_Details','loader1',1)">Save</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Saving Animation-->
+    <section class="text-gray-400 bg-gray-900 body-font" id="loader1">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+                <center><img src="Animation - 1.gif" alt=""></center>
+                <p class="leading-relaxed text-lg">wait a while saving..</p>
+                <span class="inline-block h-1 w-10 rounded bg-green-500 mt-8 mb-6"></span>
+                <h2 class="text-white font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
+                <p class="text-gray-500">Senior Product Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Box type choises -->
+    <div class="scroll-container bg-gray-900" id="scrollContainer_1">
+        <div class="scroll-content bg-gray-900" id="scrollContent_1">
+            <section class="text-gray-400 bg-gray-900 body-font overflow-y-auto " id="menu">
+                <div class="container px-5 py-24 mx-auto">
+                    <div class="flex flex-col text-center w-full mb-20">
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Choose the type of box
+                        </h1>
+                        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon
+                            brooklyn
+                            asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of
+                            them
+                            man bun deep jianbing selfies heirloom.</p>
+                    </div>
+
+                    <div class="flex flex-wrap -m-4">
+
+                        <div class="xl:w-1/4 md:w-1/2 p-4 ">
+                            <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg ">
+                                <a href="#box_color">
+                                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="1.jpg"
+                                        alt="content">
+                                    <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE
+                                    </h3>
+                                    <h2 class="text-lg text-white font-medium title-font mb-4">Chichen Itza</h2>
+                                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit
+                                        waistcoat.
+                                        Distillery hexagon disrupt edison bulbche.</p>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="xl:w-1/4 md:w-1/2 p-4 ">
+                            <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg ">
+                                <a href="#box_color">
+                                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="1.jpg"
+                                        alt="content">
+                                    <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE
+                                    </h3>
+                                    <h2 class="text-lg text-white font-medium title-font mb-4">Chichen Itza</h2>
+                                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit
+                                        waistcoat.
+                                        Distillery hexagon disrupt edison bulbche.</p>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="xl:w-1/4 md:w-1/2 p-4 ">
+                            <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg ">
+                                <a href="#box_color">
+                                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="2.jpg"
+                                        alt="content">
+                                    <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE
+                                    </h3>
+                                    <h2 class="text-lg text-white font-medium title-font mb-4">Chichen Itza</h2>
+                                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit
+                                        waistcoat.
+                                        Distillery hexagon disrupt edison bulbche.</p>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="xl:w-1/4 md:w-1/2 p-4 ">
+                            <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg ">
+                                <a href="#box_color">
+                                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="1.jpg"
+                                        alt="content">
+                                    <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE
+                                    </h3>
+                                    <h2 class="text-lg text-white font-medium title-font mb-4">Chichen Itza</h2>
+                                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit
+                                        waistcoat.
+                                        Distillery hexagon disrupt edison bulbche.</p>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="xl:w-1/4 md:w-1/2 p-4 ">
+                            <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg ">
+                                <a href="#box_color">
+                                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="3.jpg"
+                                        alt="content">
+                                    <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE
+                                    </h3>
+                                    <h2 class="text-lg text-white font-medium title-font mb-4">Chichen Itza</h2>
+                                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit
+                                        waistcoat.
+                                        Distillery hexagon disrupt edison bulbche.</p>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="xl:w-1/4 md:w-1/2 p-4 ">
+                            <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg ">
+                                <a href="#box_color">
+                                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="1.jpg"
+                                        alt="content">
+                                    <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">SUBTITLE
+                                    </h3>
+                                    <h2 class="text-lg text-white font-medium title-font mb-4">Chichen Itza</h2>
+                                    <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit
+                                        waistcoat.
+                                        Distillery hexagon disrupt edison bulbche.</p>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Box color type-->
+    <div class="scroll-container bg-gray-900" id="scrollContainer_2">
+        <div class="scroll-content bg-gray-900" id="scrollContent_2">
+            <section class="text-gray-400 bg-gray-900 body-font" id="box_color">
+                <div class="container px-5 py-24 mx-auto" style="margin-top: 5%;">
+                    <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+                        <div class="sm:w-1/2 mb-10 px-4">
+                            <div class="rounded-lg h-64 overflow-hidden">
+                                <img alt="content" class="object-cover object-center h-full w-full"
+                                    src="https://dummyimage.com/1201x501">
+                            </div>
+                            <h2 class="title-font text-2xl font-medium text-white mt-6 mb-3">Brown Color</h2>
+                            <p class="leading-relaxed text-base">Williamsburg occupy sustainable snackwave gochujang.
+                                Pinterest
+                                cornhole brunch, slow-carb neutra irony.</p>
+                            <button
+                                class="flex mx-auto mt-6 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-600 rounded"
+                                onclick="box_color('brown')">Button</button>
+                        </div>
+                        <div class="sm:w-1/2 mb-10 px-4">
+                            <div class="rounded-lg h-64 overflow-hidden">
+                                <img alt="content" class="object-cover object-center h-full w-full"
+                                    src="https://dummyimage.com/1202x502">
+                            </div>
+                            <h2 class="title-font text-2xl font-medium text-white mt-6 mb-3">White Color</h2>
+                            <p class="leading-relaxed text-base">Williamsburg occupy sustainable snackwave gochujang.
+                                Pinterest
+                                cornhole brunch, slow-carb neutra irony.</p>
+                            <button
+                                class="flex mx-auto mt-6 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-600 rounded"
+                                onclick="box_color('white')">Button</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Box Specifiction Section -->
+    <div class="scroll-container bg-gray-900" id="scrollContainer_3">
+        <div class="scroll-content bg-gray-900" id="scrollContent_3">
+            <section class="text-gray-400 bg-gray-900 body-font " id="product">
+                <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center"
+                    style="margin-top: 5%;">
+                    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+                    </div>
+                    <div
+                        class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                        <p class="text-green-400 inline-flex items-center md:mb-4 lg:mb-0">
+                            <svg fill="none" stroke="currentColor" style="rotate: -180deg;margin-left:-2%"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2"
+                                viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>Previous section
+                        </p>
+                        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Box Specifiction</h1>
+
+
+                        <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man
+                            braid swag
+                            typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
+                        <div class="flex w-full md:justify-start justify-center items-end">
+                            <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+                                <label for="hero-field" class="leading-7 text-sm text-gray-400">Length</label>
+                                <input type="text" id="hero-fie" name="hero-field"
+                                    class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                            <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+                                <label for="hero-field" class="leading-7 text-sm text-gray-400">Width</label>
+                                <input type="text" id="hero-fielddd" name="hero-field"
+                                    class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                            <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+                                <label for="hero-field" class="leading-7 text-sm text-gray-400">Height</label>
+                                <input type="text" id="hero-fiddeld" name="hero-field"
+                                    class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+
+                        </div>
+
+                        <p class="text-sm mt-2 text-gray-500 mb-8 w-full">( All the dimensions are in inches )</p>
+                        <div class="flex w-full md:justify-start justify-center items-end">
+
+                            <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+                                <label for="hero-field" class="leading-7 text-sm text-gray-400">Printed</label>
+                                <select name="" id="printed"
+                                    class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <option
+                                        class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        value="1">Yes</option>
+                                    <option
+                                        class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+                                <!-- <button
+                                    class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">Button</button> -->
+
+                            </div>
+
+                        </div>
+
+            </section>
+        </div>
+    </div>
+
+    <!-- Box Specifiction Section -->
+    <div class="scroll-container bg-gray-900" id="scrollContainer_4">
+        <div class="scroll-content bg-gray-900" id="scrollContent_4">
+            <section class="text-gray-400 bg-gray-900 body-font " id="print">
+                <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+                    </div>
+                    <div
+                        class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                        <p class="text-green-400 inline-flex items-center md:mb-4 lg:mb-0">
+                            <svg fill="none" stroke="currentColor" style="rotate: -180deg;margin-left:-2%"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2"
+                                viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>Previous section
+                        </p>
+                        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Print Specifiction</h1>
+                        <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man
+                            braid swag
+                            typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
+                        <div class="flex w-full md:justify-start justify-center items-end">
+                            <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
+                                <label for="hero-field" class="leading-7 text-sm text-gray-400">Color</label>
+                                <select name="" id=""
+                                    class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <option
+                                        class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        value="1">One</option>
+                                    <option
+                                        class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:ring-2 focus:ring-green-900 focus:bg-transparent focus:border-green-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        value="2">Two</option>
+                                </select>
+                            </div>
+                            <button
+                                class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">Button</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <script>
+        const scrollContainer_1 = document.getElementById('scrollContainer_1');
+        const scrollContent_1 = document.getElementById('scrollContent_1');
+        let scrollY_1 = 0;
+
+        scrollContainer_1.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_1 -= delta;
+            const maxScroll = scrollContent_1.scrollHeight - scrollContainer_1.clientHeight;
+            scrollY_1 = Math.max(Math.min(scrollY_1, 0), -maxScroll);
+            scrollContent_1.style.transform = `translateY(${scrollY_1}px)`;
+        });
+        scrollContainer_1.addEventListener('scroll', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_1 -= delta;
+            const maxScroll = scrollContent_1.scrollHeight - scrollContainer_1.clientHeight;
+            scrollY_1 = Math.max(Math.min(scrollY_1, 0), -maxScroll);
+            scrollContent_1.style.transform = `translateY(${scrollY_1}px)`;
+        });
+
+        // Touch events
+        scrollContainer_1.addEventListener('touchstart', function (event) {
+            startY = event.touches[0].clientY;
+            initialScrollY = scrollY_1;
+        });
+
+        scrollContainer_1.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+            const currentY = event.touches[0].clientY;
+            const delta = startY - currentY;
+            scrollY_1 = initialScrollY - delta;
+            const maxScroll = scrollContent_1.scrollHeight - scrollContainer_1.clientHeight;
+            scrollY_1 = Math.max(Math.min(scrollY_1, 0), -maxScroll);
+            scrollContent_1.style.transform = `translateY(${scrollY_1 + 10}px)`;
+        });
+
+        scrollContainer_1.addEventListener('touchend', function (event) {
+            initialScrollY = scrollY_1;
+        });
+
+        // Scroll container 2
+
+        const scrollContainer_2 = document.getElementById('scrollContainer_2');
+        const scrollContent_2 = document.getElementById('scrollContent_2');
+        let scrollY_2 = 0;
+
+        scrollContainer_2.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_2 -= delta;
+            const maxScroll = scrollContent_2.scrollHeight - scrollContainer_2.clientHeight;
+            scrollY_2 = Math.max(Math.min(scrollY_2, 0), -maxScroll);
+            scrollContent_2.style.transform = `translateY(${scrollY_2}px)`;
+        });
+        scrollContainer_2.addEventListener('scroll', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_2 -= delta;
+            const maxScroll = scrollContent_2.scrollHeight - scrollContainer_2.clientHeight;
+            scrollY_2 = Math.max(Math.min(scrollY_2, 0), -maxScroll);
+            scrollContent_2.style.transform = `translateY(${scrollY_2}px)`;
+        });
+
+        // Touch events
+        scrollContainer_2.addEventListener('touchstart', function (event) {
+            startY = event.touches[0].clientY;
+            initialScrollY = scrollY_2;
+        });
+
+        scrollContainer_2.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+            const currentY = event.touches[0].clientY;
+            const delta = startY - currentY;
+            scrollY_2 = initialScrollY - delta;
+            const maxScroll = scrollContent_2.scrollHeight - scrollContainer_2.clientHeight;
+            scrollY_2 = Math.max(Math.min(scrollY_2, 0), -maxScroll);
+            scrollContent_2.style.transform = `translateY(${scrollY_2 + 10}px)`;
+        });
+
+        scrollContainer_2.addEventListener('touchend', function (event) {
+            initialScrollY = scrollY_2;
+        });
+
+        // Scroll container 3
+
+        const scrollContainer_3 = document.getElementById('scrollContainer_3');
+        const scrollContent_3 = document.getElementById('scrollContent_3');
+        let scrollY_3 = 0;
+
+        scrollContainer_3.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_3 -= delta;
+            const maxScroll = scrollContent_3.scrollHeight - scrollContainer_3.clientHeight;
+            scrollY_3 = Math.max(Math.min(scrollY_3, 0), -maxScroll);
+            scrollContent_3.style.transform = `translateY(${scrollY_3}px)`;
+        });
+        scrollContainer_3.addEventListener('scroll', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_3 -= delta;
+            const maxScroll = scrollContent_3.scrollHeight - scrollContainer_3.clientHeight;
+            scrollY_3 = Math.max(Math.min(scrollY_3, 0), -maxScroll);
+            scrollContent_3.style.transform = `translateY(${scrollY_3}px)`;
+        });
+
+        // Touch events
+        scrollContainer_3.addEventListener('touchstart', function (event) {
+            startY = event.touches[0].clientY;
+            initialScrollY = scrollY_3;
+        });
+
+        scrollContainer_3.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+            const currentY = event.touches[0].clientY;
+            const delta = startY - currentY;
+            scrollY_3 = initialScrollY - delta;
+            const maxScroll = scrollContent_3.scrollHeight - scrollContainer_3.clientHeight;
+            scrollY_3 = Math.max(Math.min(scrollY_3, 0), -maxScroll);
+            scrollContent_3.style.transform = `translateY(${scrollY_3 + 10}px)`;
+        });
+
+        scrollContainer_3.addEventListener('touchend', function (event) {
+            initialScrollY = scrollY_3;
+        });
+
+        // Scroll container 3
+
+        const scrollContainer_4 = document.getElementById('scrollContainer_4');
+        const scrollContent_4 = document.getElementById('scrollContent_4');
+        let scrollY_4 = 0;
+
+        scrollContainer_4.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_4 -= delta;
+            const maxScroll = scrollContent_4.scrollHeight - scrollContainer_4.clientHeight;
+            scrollY_4 = Math.max(Math.min(scrollY_4, 0), -maxScroll);
+            scrollContent_4.style.transform = `translateY(${scrollY_4}px)`;
+        });
+        scrollContainer_4.addEventListener('scroll', function (event) {
+            event.preventDefault();
+            const delta = event.deltaY;
+            scrollY_4 -= delta;
+            const maxScroll = scrollContent_4.scrollHeight - scrollContainer_4.clientHeight;
+            scrollY_4 = Math.max(Math.min(scrollY_4, 0), -maxScroll);
+            scrollContent_4.style.transform = `translateY(${scrollY_4}px)`;
+        });
+
+        // Touch events
+        scrollContainer_4.addEventListener('touchstart', function (event) {
+            startY = event.touches[0].clientY;
+            initialScrollY = scrollY_4;
+        });
+
+        scrollContainer_4.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+            const currentY = event.touches[0].clientY;
+            const delta = startY - currentY;
+            scrollY_4 = initialScrollY - delta;
+            const maxScroll = scrollContent_4.scrollHeight - scrollContainer_4.clientHeight;
+            scrollY_4 = Math.max(Math.min(scrollY_4, 0), -maxScroll);
+            scrollContent_4.style.transform = `translateY(${scrollY_4 + 10}px)`;
+        });
+
+        scrollContainer_4.addEventListener('touchend', function (event) {
+            initialScrollY = scrollY_4;
+        });
+
+
+        function lr_animation(curr, next, trno) {
+
+
+            if (trno == 1) {
+                setTimeout(function () {
+
+                    document.getElementById(curr).style.transform = " scale(0.5) translate(-100%,0%)";
+                    document.getElementById(next).style.transform = " scale(1) translate(0%,-100%)";
+                }, 200);
+                document.getElementById(next).style.zIndex = 2;
+                document.getElementById(curr).style.zIndex = 1;
+            }
+            if (trno == 2) {
+                setTimeout(function () {
+
+                    document.getElementById(curr).style.transform = " scale(0.5) translate(-100%,-200%)";
+                    document.getElementById(next).style.transform = " scale(1) translate(0%,-200%)";
+                }, 200);
+                document.getElementById(next).style.zIndex = 3;
+                document.getElementById(curr).style.zIndex = 2;
+            }
+            if (trno == 3) {
+                setTimeout(function () {
+
+                    document.getElementById(curr).style.transform = " scale(0.5) translate(100%,-200%)";
+                    document.getElementById(next).style.transform = " scale(1) translate(0%,0%)";
+                    document.getElementById(next).style.zIndex = 3;
+                    document.getElementById(curr).style.zIndex = 2;
+
+                }, 200);
+            }
+            if (trno == 4) {
+                setTimeout(function () {
+                    document.getElementById(curr).style.transform = " scale(0.5) translate(100%,-400%)";
+                    document.getElementById(next).style.transform = " scale(1) translate(0%,-100%)";
+                    document.getElementById(next).style.zIndex = 3;
+                    document.getElementById(curr).style.zIndex = 0;
+                }, 300);
+            }
+        }
+        function up_animation(curr, next, trno) {
+            if (trno == 1) {
+                setTimeout(function () {
+                    document.getElementById("loader1").scrollIntoView();
+                    document.getElementById('scrollContainer_1').style.opacity = '0';
+                    up_animation2("scrollContainer_1");
+                }, 200);
+            }
+        }
+        function up_animation2(curr) {
+            document.getElementById(curr).style.opacity = '1';
+            setTimeout(function () {
+
+                document.getElementById(curr).scrollIntoView();
+            }, 2000);
+
+        }
+        function box_color(colour) {
+            document.getElementById("product").scrollIntoView();
+
+        }
+
+
+        document.getElementById('printed').addEventListener('input', () => {
+            if (document.getElementById('printed').value == 1) {
+                document.getElementById("print").scrollIntoView();
+            }
+            else {
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>
